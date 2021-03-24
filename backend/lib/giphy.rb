@@ -2,7 +2,7 @@ class Giphy
     include HTTParty
     base_uri 'api.giphy.com/v1/gifs'
     format :json
-
+    
     attr_reader :api_key
     
     def initialize(api_key)
