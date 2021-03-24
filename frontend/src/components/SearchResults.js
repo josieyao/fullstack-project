@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 const SearchResults = ({ gifs, addFavorite, favorites, ...props }) => {
   const classes = useStyles();
 
+  //saves favorited gifs
   const handleAddFavorite = (gif) => {
     axios
       .post(`http://localhost:3010/api/v1/favorites`, {
@@ -53,7 +54,7 @@ const SearchResults = ({ gifs, addFavorite, favorites, ...props }) => {
 
   return (
     <div className={classes.root}>
-      {gifs.length > 0 ? (
+      {gifs && gifs.length > 0 ? (
         <React.Fragment>
           <Typography variant="h5" classes={{ root: classes.defaultText }}>
             Search Results

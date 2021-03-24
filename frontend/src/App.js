@@ -9,6 +9,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useState([]);
 
+  //submit event to search for gifs
   const handleSubmit = () => {
     axios
       .get(`http://localhost:3010/api/v1/gifs/search?search=${searchTerm}`)

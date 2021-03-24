@@ -9,6 +9,8 @@ class Api::V1::GifsController < ApplicationController
     end
 
     private
+
+    #create new giphy instance with api key
     def giphy
         @giphy = Giphy.new(Rails.application.credentials.giphy[:secret_access_key])
     end

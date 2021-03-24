@@ -9,6 +9,7 @@ class Giphy
         @api_key = api_key
     end
 
+    #giphy api search url with search term and api key
     def search(term)
         url = "/search?q=#{term}&api_key=#{@api_key}"
         request url

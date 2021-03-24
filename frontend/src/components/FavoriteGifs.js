@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const FavoriteGifs = ({ favorites, setFavorites, ...props }) => {
   const classes = useStyles();
 
+  //loads all favorited gifs to the page & updates when there is a new favorited gif
   useEffect(() => {
     const getFavorites = () => {
       axios
@@ -46,7 +47,7 @@ const FavoriteGifs = ({ favorites, setFavorites, ...props }) => {
       <Typography variant="h5" classes={{ root: classes.defaultText }}>
         Favorites
       </Typography>
-      {favorites.length > 0 ? (
+      {favorites && favorites.length > 0 ? (
         <GridList cellHeight={180} classes={{ root: classes.gridList }}>
           {favorites.map((gif, i) => {
             const { title, url } = gif;
