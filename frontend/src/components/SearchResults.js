@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Typography from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
 import classNames from "classnames";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,7 +55,9 @@ const SearchResults = ({ gifs, addFavorite, favorites, ...props }) => {
     <div className={classes.root}>
       {gifs.length > 0 ? (
         <React.Fragment>
-          <Typography variant="h5">Search Results</Typography>
+          <Typography variant="h5" classes={{ root: classes.defaultText }}>
+            Search Results
+          </Typography>
           <GridList className={classes.gridList}>
             <GridListTile key="Subheader" cols={2} style={{ height: "auto" }} />
             {gifs.map((gif, i) => {
@@ -75,7 +78,9 @@ const SearchResults = ({ gifs, addFavorite, favorites, ...props }) => {
                         onClick={() => handleAddFavorite(gif)}
                       >
                         {alreadyFavorited ? (
-                          <FavoriteIcon />
+                          <Tooltip title="Already Favorited, silly!">
+                            <FavoriteIcon />
+                          </Tooltip>
                         ) : (
                           <FavoriteBorderIcon />
                         )}

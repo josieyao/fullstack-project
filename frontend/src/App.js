@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
+import FavoriteGifs from "./components/FavoriteGifs";
 
 function App() {
   const [gifs, setGifs] = useState([]);
@@ -46,6 +47,7 @@ function App() {
         addFavorite={addFavorite}
         favorites={favorites}
       />
+      <FavoriteGifs favorites={favorites} setFavorites={setFavorites} />
     </React.Fragment>
   );
 }
